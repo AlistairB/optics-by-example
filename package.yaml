@@ -24,6 +24,34 @@ dependencies:
 
 library:
   source-dirs: src
+  dependencies:
+  - lens
+  - lens-aeson
+  - aeson
+  - containers
+  - mtl
+  - text
+
+default-extensions:
+  - TemplateHaskell
+  - FlexibleInstances
+  - FlexibleContexts
+  - RankNTypes
+  - ScopedTypeVariables
+  - TypeApplications
+  - TypeFamilies
+
+# ghc-options:
+#   # Useful warnings
+#   - -Wall
+#   - -Wincomplete-uni-patterns
+#   - -Wincomplete-record-updates
+#   - -Wcompat
+#   - -Widentities
+#   - -Wredundant-constraints
+#   - -fhide-source-paths
+#   - -Wmissing-export-lists
+#   - -Wpartial-fields
 
 executables:
   optics-by-example-exe:
