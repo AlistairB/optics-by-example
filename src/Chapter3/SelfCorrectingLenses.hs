@@ -13,11 +13,16 @@ data ProducePrices = ProducePrices
 limeCost :: Lens' ProducePrices Float
 limeCost = lens getter setter
   where
-    getter = undefined
-    setter = undefined
+    getter = _limePrice
+    setter produce limePrice = if   limePrice < 0
+                               then produce { _limePrice = 0 }
+                               else produce { _limePrice = limePrice }
+
 
 lemonCost :: Lens' ProducePrices Float
 lemonCost = lens getter setter
   where
-    getter = undefined
-    setter = undefined
+    getter = _lemonPrice
+    setter produce lemonPrice = if   lemonPrice < 0
+                              then produce { _lemonPrice = 0 }
+                              else produce { _lemonPrice = lemonPrice }
