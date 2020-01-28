@@ -6,6 +6,7 @@ import           Control.Lens.Lens              ( lens )
 import           Control.Lens
 import Control.Lens.Operators
 import Control.Lens.Setter
+import Data.Char ( toUpper )
 
 
 data Gate = Gate
@@ -77,3 +78,27 @@ goalC =
 --             , _gate = Gate { _open = True, _oilTemp = 5.0 }
 --             }
 --   )
+
+
+-- 2.
+
+fiveOp :: (Bool, String)
+fiveOp = ( False , "opossums" ) & _1 ||~ True -- ( True , "opossums" )
+
+fiveOp2 :: Int
+fiveOp2 = 2 & id *~ 3 --6
+
+fiveOp3 :: ((Bool, String), Double)
+fiveOp3 =
+  (( True , "Dudley" ), 55.0 )
+    & _1 . _2 <>~ " - the worst"
+    & _2 -~ 15
+    & _2 //~ 2
+    & _1 . _2 %~ map toUpper
+    & _1 . _1 ||~ False
+
+-- (( False , "DUDLEY - THE WORST" ), 20.0 )
+
+-- type signature of %~
+(%%%~) :: Lens s t a b -> (a -> b) -> s -> t
+(%%%~) = (%~)
