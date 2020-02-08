@@ -13,6 +13,8 @@ import Data.Map.Lazy as M
 
 -- 1.
 
+-- folded :: Foldable f => Fold ( f a ) a
+
 beastSizes :: [(Int, String)]
 beastSizes = [(3, "Sirens"), (882, "Kraken"), (92, "Ogopogo")]
 

@@ -40,6 +40,8 @@ default-extensions:
   - ScopedTypeVariables
   - TypeApplications
   - TypeFamilies
+  - OverloadedStrings
+  - LambdaCase
 
 # ghc-options:
 #   # Useful warnings

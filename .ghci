@@ -1,6 +1,4 @@
-# prompt
 :set prompt "\x03BB> "
 :set prompt-cont " > "
 
-# compiler extensions
 :seti -XOverloadedStrings
