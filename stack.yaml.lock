@@ -5,15 +5,15 @@
 
 packages:
 - completed:
-    hackage: lens-4.19@sha256:13e4d83ce33fea7a3f33414b79ba5d9d144d7110ef4850660b9fe450d721c541,15549
+    hackage: lens-4.19.1@sha256:6bbc0b145b037537d468b0810ea2a560beda999f89444fe4101061c7892cd596,15551
     pantry-tree:
       size: 8329
-      sha256: e56b500673db1177e60a2050a828ec9142c3e97885538abf5df68a99e7ca94f5
+      sha256: f51cd6be482804001bf9868fe4a552d01a6c3a4e367c16bd3df0ad74b755ac2c
   original:
-    hackage: lens-4.19
+    hackage: lens-4.19.1
 snapshots:
 - completed:
-    size: 476044
-    url: https://raw.githubusercontent.com/commercialhaskell/stackage-snapshots/master/nightly/2020/2/7.yaml
-    sha256: a7174109cf07ca2b5a1786650d4a916df18bff9fc4327cc857b4a84fd1a57e6c
-  original: nightly-2020-02-07
+    size: 488576
+    url: https://raw.githubusercontent.com/commercialhaskell/stackage-snapshots/master/lts/15/0.yaml
+    sha256: e4b6a87b47ec1cf63a7f1a0884a3b276fce2b0d174a10e8753c4f618e7983568
+  original: lts-15.0
