@@ -68,7 +68,7 @@ six26 = maximumByOf worded (compare `on` countVowels) "Do or do not, there is no
     countVowels = length . filter (`elem` "aeiou") . fmap toLower
 
 six27 :: String
-six27 = foldOf folded [ "a" , "b" , "c" ]
+six27 = foldByOf folded (flip (++)) [] [ "a" , "b" , "c" ]
 
 six28 :: String
 six28 = foldMapOf (folded . _2) (reverse . show)  [( 12 , 45 , 66 ), ( 91 , 123 , 87 )]
