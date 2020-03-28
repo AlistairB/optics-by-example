@@ -71,10 +71,14 @@ six27 :: String
 six27 = foldByOf folded (flip (++)) [] [ "a" , "b" , "c" ]
 
 six28 :: String
-six28 = foldMapOf (folded . _2) (reverse . show)  [( 12 , 45 , 66 ), ( 91 , 123 , 87 )]
+six28 = [( 12 , 45 , 66 ), ( 91 , 123 , 87 )] ^.. folded . _2 . to show . to reverse . folded
 -- "54321"
 
 six29 :: [String]
 six29 = foldrOf folded includeSndIfEven [] [( 1 , "a" ), ( 2 , "b" ), ( 3 , "c" ), ( 4 , "d" )]
   where
     includeSndIfEven (a, b) r = if even a then b : r else r
+
+-- [( 1 , "a" ), ( 2 , "b" ), ( 3 , "c" ), ( 4 , "d" )]
+--   ^.. folded
+--     . folding ( \ ( a , b ) -> if ( even a ) then return b else [] )
