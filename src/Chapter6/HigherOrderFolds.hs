@@ -43,3 +43,24 @@ hof7 = ( "stressed" , "guns" , "evil" ) ^.. backwards each . to reverse
 hof8 :: String
 hof8 = "blink182 k9 blazeit420" ^.. worded . droppingWhile isAlpha folded
 -- "1829420"
+
+-- 2.
+
+sample :: [ Int ]
+sample = [ -10 , -5 , 4 , 3 , 8 , 6 , -2 , 3 , -5 , -7 ]
+
+numDaysFirstThaw :: Int
+numDaysFirstThaw = lengthOf (takingWhile (< 0) folded) sample
+-- 2
+
+warmestInFirst4Days :: Maybe Int
+warmestInFirst4Days = maximumOf (taking 4 folded) sample
+-- Just 4
+
+nextDayAfter :: Maybe Int
+nextDayAfter = sample ^? dropping 1 (droppingWhile (/= 4) folded)
+--Just 3
+
+howManyFreezingAtEnd :: Int
+howManyFreezingAtEnd = lengthOf (takingWhile (<= 0) (backwards folded)) sample
+-- 2

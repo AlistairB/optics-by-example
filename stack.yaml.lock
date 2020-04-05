@@ -13,7 +13,7 @@ packages:
     hackage: lens-4.19.1
 snapshots:
 - completed:
-    size: 491372
-    url: https://raw.githubusercontent.com/commercialhaskell/stackage-snapshots/master/lts/15/5.yaml
-    sha256: 1b549cfff328040c382a70a84a2087aac8dab6d778bf92f32a93a771a1980dfc
-  original: lts-15.5
+    size: 509106
+    url: https://raw.githubusercontent.com/commercialhaskell/stackage-snapshots/master/nightly/2020/4/5.yaml
+    sha256: c517467a2734b98ef1744c83b2df717f47c720518aea50f995f920bf5df4d1fa
+  original: nightly-2020-04-05
