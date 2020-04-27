@@ -64,3 +64,14 @@ nextDayAfter = sample ^? dropping 1 (droppingWhile (/= 4) folded)
 howManyFreezingAtEnd :: Int
 howManyFreezingAtEnd = lengthOf (takingWhile (<= 0) (backwards folded)) sample
 -- 2
+
+fromFirstThawToNextFreeze :: [Int]
+fromFirstThawToNextFreeze = sample ^.. (takingWhile (> 0) . droppingWhile (<= 0)) folded
+-- [ 4 , 3 , 8 , 6 ]
+
+fromFirstThawToLastFreeze :: [Int]
+fromFirstThawToLastFreeze = sample ^.. trimmingWhile (<= 0) folded
+-- [ 4 , 3 , 8 , 6 , - 2 , 3 ]
+
+trimmingWhile :: ( a -> Bool ) -> Fold s a -> Fold s a
+trimmingWhile p = backwards . droppingWhile p . backwards . droppingWhile p
