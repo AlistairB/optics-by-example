@@ -30,6 +30,7 @@ library
     Chapter6.Folds
     Chapter6.HigherOrderFolds
     Chapter7.SimpleTraversals
+    Chapter7.TraversalActions
   default-language: Haskell2010
   default-extensions:
     TemplateHaskell
