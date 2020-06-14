@@ -61,3 +61,7 @@ validAge age
   | age <= 0 = Left "Age is too low"
   | age > 150 = Left "Age is too high"
   | otherwise = Right age
+
+values :: Applicative f => ( a -> f b ) -> [ a ] -> f [ b ]
+values _ [] = pure []
+values handler ( a : as ) = liftA2 ( : ) ( handler a ) ( values handler as )
