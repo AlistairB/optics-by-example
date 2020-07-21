@@ -30,6 +30,13 @@ transactionDelta :: Traversal' Transaction Int
 transactionDelta handler (Withdrawal a) = (negate <$> handler (negate a)) <&> Withdrawal
 transactionDelta handler (Deposit a) = handler a <&> Deposit
 
--- left :: Applicative f => (Int -> f Int) -> ( Either a b ) -> Transaction
+-- left :: Applicative f => (Int -> f Int) -> ( Either a b ) -> Either a' b
 left :: Traversal ( Either a b ) ( Either a' b ) a a'
-left handler (Left a) = undefined
+left handler (Left a) = handler a <&> Left
+left handler (Right b) = pure $ Right b
+
+beside :: Traversal s t a b -> Traversal s' t' a b -> Traversal (s, s') (t, t') a b
+beside left' right' handler (s , s') =
+  liftA2 (,)
+    ( s & left' %%~ handler )
+    ( s' & right' %%~ handler )
